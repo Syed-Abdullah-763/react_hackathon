@@ -26,36 +26,72 @@ const Login = () => {
     <>
       <main className={styles.main}>
         <div className={styles.loginBox}>
-          <h2 className={styles.heading}>Welcome Back 👋</h2>
+          <div className={styles.brand}>
+            <div className={styles.brandIcon} aria-hidden="true" />
+            <div>
+              <div className={styles.heading}>PitchCraft</div>
+              <div
+                className={styles.subHeading}
+                style={{ margin: 0, fontSize: "0.85rem" }}
+              >
+                AI assistant for building business ideas
+              </div>
+            </div>
+          </div>
+
+          <h2 className={styles.heading} style={{ marginTop: 12 }}>
+            Welcome Back 👋
+          </h2>
           <p className={styles.subHeading}>Login to your account</p>
 
-          <div className={styles.form}>
+          <form
+            className={styles.form}
+            onSubmit={(e) => {
+              e.preventDefault();
+              loginHandler();
+            }}
+          >
             <div className={styles.inputGroup}>
+              <label className={styles.label} htmlFor="email">
+                Email
+              </label>
               <input
+                id="email"
                 type="email"
-                placeholder="Email"
+                placeholder="you@company.com"
                 required
                 className={styles.input}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                aria-label="Email address"
               />
             </div>
             <div className={styles.inputGroup}>
+              <label className={styles.label} htmlFor="password">
+                Password
+              </label>
               <input
+                id="password"
                 type="password"
-                placeholder="Password"
+                placeholder="Enter your password"
                 required
                 className={styles.input}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                aria-label="Password"
               />
             </div>
-            <button className={styles.loginBtn} onClick={loginHandler}>
+
+            <div className={styles.secondaryRow}>
+              <label style={{ color: "#bcd", fontSize: "0.9rem" }}>
+                <input type="checkbox" style={{ marginRight: 8 }} /> Remember me
+              </label>
+            </div>
+
+            <button type="submit" className={styles.loginBtn}>
               Login
             </button>
-          </div>
+          </form>
 
           <p className={styles.footerText}>
             Don’t have an account? <Link to="/signup">Sign Up</Link>

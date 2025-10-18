@@ -1,0 +1,84 @@
+:root {
+  --bg-1: #0f1724;
+  --bg-2: #071025;
+  --accent: #00e6c3;
+  --accent-2: #6ce1ff;
+  --muted: #9aa6b2;
+}
+
+* { box-sizing: border-box; }
+
+.main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(108,225,255,0.04), transparent),
+              radial-gradient(900px 500px at 90% 90%, rgba(0,230,195,0.03), transparent),
+              linear-gradient(180deg, var(--bg-1), var(--bg-2));
+  color: #eafbf7;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial;
+}
+
+.container {
+  width: 100%;
+  max-width: 900px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border: 1px solid rgba(0,230,195,0.12);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 16px 40px rgba(2,6,23,0.6);
+}
+
+.header { text-align: left; margin-bottom: 12px; }
+.title { font-size: 1.25rem; font-weight:700; color: #fff; }
+.subtitle { color: var(--muted); font-size: 0.95rem; margin-top: 4px; }
+
+.chatArea {
+  min-height: 280px;
+  max-height: 420px;
+  overflow-y: auto;
+  padding: 14px;
+  display:flex;
+  flex-direction: column;
+  gap: 12px;
+  background: rgba(255,255,255,0.01);
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+.empty { color: var(--muted); text-align:center; padding:30px 10px; }
+
+.userMsg {
+  align-self: flex-end;
+  background: rgba(108,225,255,0.06);
+  color: #04212a;
+  padding: 10px 14px;
+  border-radius: 12px;
+  max-width: 80%;
+}
+
+.aiMsg {
+  align-self: flex-start;
+  background: rgba(0,230,195,0.08);
+  color: #e9faf5;
+  padding: 10px 14px;
+  border-radius: 12px;
+  max-width: 80%;
+}
+
+.form { display:flex; gap:10px; align-items:flex-end; }
+.input { flex: 1; resize: none; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.02); color: #eafbf7; outline:none; }
+.input:focus { box-shadow: 0 6px 18px rgba(0,230,195,0.06); border-color: var(--accent); }
+
+.controls { display:flex; gap:8px; }
+.sendBtn { padding:10px 16px; border-radius:10px; background: linear-gradient(90deg,var(--accent),var(--accent-2)); color:#04212a; border:none; font-weight:700; cursor:pointer; }
+.sendBtn:disabled { opacity:0.6; cursor:not-allowed; }
+
+@media (max-width:720px) {
+  .container { padding:16px; }
+  .chatArea { min-height: 200px; }
+}
+
+@media (prefers-reduced-motion: reduce) { .sendBtn, .input { transition:none; } }

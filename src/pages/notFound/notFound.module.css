@@ -4,73 +4,81 @@
   box-sizing: border-box;
 }
 
+:root {
+  --bg-1: #0f1724; /* deep navy */
+  --bg-2: #071025; /* darker overlay */
+  --accent: #00e6c3; /* mint */
+  --accent-2: #6ce1ff; /* sky */
+  --muted: #9aa6b2;
+}
+
 .main {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
-  background-color: rgb(3, 84, 70);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 28px;
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(108,225,255,0.06), transparent),
+              radial-gradient(900px 500px at 90% 90%, rgba(0,230,195,0.04), transparent),
+              linear-gradient(180deg, var(--bg-1), var(--bg-2));
+  color: #e6f7f3;
   text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
 }
 
-/* Error Box */
+/* Error Box - glass card */
 .errorBox {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgb(55, 225, 197);
-  border-radius: 20px;
-  padding: 40px 30px;
-  max-width: 450px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border: 1px solid rgba(0,230,195,0.12);
+  border-radius: 16px;
+  padding: 36px 28px;
+  max-width: 520px;
   width: 100%;
-  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+  backdrop-filter: blur(6px) saturate(120%);
 }
 
 .errorCode {
-  font-size: 5rem;
-  color: rgb(55, 225, 197);
-  font-weight: bold;
+  font-size: 4.5rem;
+  color: var(--accent);
+  font-weight: 800;
   margin-bottom: 10px;
 }
 
 .message {
   color: #fff;
-  font-size: 1.8rem;
-  margin-bottom: 10px;
+  font-size: 1.6rem;
+  margin-bottom: 8px;
 }
 
 .subMessage {
-  color: #ccc;
+  color: var(--muted);
   font-size: 1rem;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
-/* Button */
 .homeBtn {
   display: inline-block;
-  padding: 12px 25px;
+  padding: 12px 24px;
   border-radius: 12px;
-  background-color: rgb(55, 225, 197);
-  color: #000;
-  font-weight: bold;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #04212a;
+  font-weight: 700;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  box-shadow: 0 8px 22px rgba(6,26,30,0.28);
 }
 
-.homeBtn:hover {
-  background-color: rgb(45, 174, 152);
-  color: #fff;
-}
+.homeBtn:hover { transform: translateY(-3px); }
 
-/* Responsive */
 @media (max-width: 480px) {
-  .errorCode {
-    font-size: 3.5rem;
-  }
-  .message {
-    font-size: 1.4rem;
-  }
-  .subMessage {
-    font-size: 0.9rem;
-  }
+  .errorCode { font-size: 3.2rem; }
+  .message { font-size: 1.25rem; }
+  .subMessage { font-size: 0.95rem; }
+  .errorBox { padding: 22px; margin: 6px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .homeBtn { transition: none; }
 }

@@ -4,6 +4,7 @@ import Signup from "./pages/signup";
 import AuthRoute from "./routes/public_route/index";
 import PrivateRoute from "./routes/private_route/ndex";
 import NotFound from "./pages/notFound";
+import Dashboard from "./dashboard";
 
 const App = () => {
   return (
@@ -14,7 +15,9 @@ const App = () => {
           <Route path="/signup" element={<Signup />} />
         </Route>
 
-        <Route element={<PrivateRoute />}></Route>
+        <Route element={<PrivateRoute />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Route>
 
         <Route path="*" element={<NotFound />} />
       </Routes>
