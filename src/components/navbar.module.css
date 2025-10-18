@@ -1,0 +1,103 @@
+:root {
+  --accent: #00e6c3;
+  --accent-2: #6ce1ff;
+  --muted: #9aa6b2;
+}
+.nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 18px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.01)
+  );
+  border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+}
+.brand a {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1.05rem;
+}
+.burger {
+  background: transparent;
+  border: 0;
+  width: 44px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.burger span,
+.burger span:before,
+.burger span:after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #e6f7f3;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+.burger span:before {
+  transform: translateY(-6px);
+}
+.burger span:after {
+  transform: translateY(6px);
+}
+.burgerOpen {
+  transform: rotate(45deg);
+}
+
+.links {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.links a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+.links a:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Mobile: collapse links into a dropdown */
+@media (max-width: 720px) {
+  .links {
+    position: absolute;
+    right: 12px;
+    top: 56px;
+    flex-direction: column;
+    background: rgba(6, 12, 18, 0.7);
+    padding: 8px;
+    border-radius: 8px;
+    display: none;
+    min-width: 140px;
+  }
+  .links.open {
+    display: flex;
+  }
+  .burger {
+    display: block;
+  }
+}
+
+@media (min-width: 721px) {
+  .burger {
+    display: none;
+  }
+  .links {
+    position: static;
+    display: flex;
+    background: transparent;
+    padding: 0;
+  }
+}

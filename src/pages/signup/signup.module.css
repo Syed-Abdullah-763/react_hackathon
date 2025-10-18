@@ -58,9 +58,6 @@
   gap: 14px;
 }
 
-.brand { display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:8px; }
-.brandIcon { display:none; }
-
 .inputGroup {
   width: 100%;
   text-align: left;
@@ -123,6 +120,4 @@
   .heading { font-size: 1.25rem; }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .input, .signupBtn { transition: none; }
-}
+@media (prefers-reduced-motion: reduce) { .input, .signupBtn { transition: none; } }

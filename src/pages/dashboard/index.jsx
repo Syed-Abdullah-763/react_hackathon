@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "./dashboard.module.css";
 
 export default function Dashboard() {
@@ -51,35 +51,39 @@ export default function Dashboard() {
     }
   };
 
-  // Auto-scroll to bottom when messages update
-  const chatRef = useRef(null);
-  useEffect(() => {
-    const el = chatRef.current;
-    if (el) {
-      el.scrollTop = el.scrollHeight;
-    }
-  }, [messages]);
-
   return (
     <main className={styles.main}>
       <div className={styles.container}>
         <header className={styles.header}>
           <div className={styles.title}>PitchCraft Assistant</div>
-          <div className={styles.subtitle}>One input to get a short business-pitch suggestion</div>
+          <div className={styles.subtitle}>
+            One input to get a short business-pitch suggestion
+          </div>
         </header>
 
-        <section ref={chatRef} className={styles.chatArea} aria-live="polite">
+        <section className={styles.chatArea} aria-live="polite">
           {messages.length === 0 && (
-            <div className={styles.empty}>Type something to get started — e.g. "food delivery for offices"</div>
+            <div className={styles.empty}>
+              Type something to get started — e.g. "food delivery for offices"
+            </div>
           )}
           {messages.map((m, i) => (
-            <div key={i} className={m.from === "user" ? styles.userMsg : styles.aiMsg}>
+            <div
+              key={i}
+              className={m.from === "user" ? styles.userMsg : styles.aiMsg}
+            >
               {m.text}
             </div>
           ))}
         </section>
 
-        <form className={styles.form} onSubmit={(e) => { e.preventDefault(); sendPrompt(); }}>
+        <form
+          className={styles.form}
+          onSubmit={(e) => {
+            e.preventDefault();
+            sendPrompt();
+          }}
+        >
           <textarea
             className={styles.input}
             placeholder="Enter your idea, product, or problem..."

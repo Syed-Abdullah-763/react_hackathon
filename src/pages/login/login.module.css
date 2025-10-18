@@ -4,17 +4,6 @@
   box-sizing: border-box;
 }
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  justify-content: center;
-  margin-bottom: 8px; /* tightened spacing since icon removed */
-}
-
-.brandIcon {
-  display: none; /* hide accent box */
-}
 :root {
   --bg-1: #0f1724; /* deep navy */
   --bg-2: #071025; /* darker overlay */
@@ -34,27 +23,33 @@
               radial-gradient(900px 500px at 90% 90%, rgba(0,230,195,0.04), transparent),
               linear-gradient(180deg, var(--bg-1), var(--bg-2));
   color: #e6f7f3;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
 }
 
 /* Login Card - glassy, compact */
 .loginBox {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.03),
-    rgba(255, 255, 255, 0.02)
-  );
-  border: 1px solid rgba(0, 230, 195, 0.14);
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border: 1px solid rgba(0,230,195,0.14);
   border-radius: 16px;
   padding: 36px 28px;
   width: 100%;
   max-width: 420px;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6),
-    inset 0 1px 0 rgba(255, 255, 255, 0.02);
+  box-shadow: 0 10px 30px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
   backdrop-filter: blur(6px) saturate(120%);
 }
 
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.brandIcon {
+  display: none; /* hidden — user preferred no accent box */
+}
 
 .heading {
   color: #fff;
@@ -92,13 +87,12 @@
   width: 100%;
   padding: 12px 14px;
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  background-color: rgba(255,255,255,0.02);
   color: #e9faf5;
   font-size: 0.95rem;
   outline: none;
-  transition: box-shadow 0.18s ease, border-color 0.18s ease,
-    transform 0.12s ease;
+  transition: box-shadow 0.18s ease, border-color 0.18s ease, transform 0.12s ease;
 }
 
 .input::placeholder {
@@ -107,7 +101,7 @@
 
 .input:focus {
   border-color: var(--accent);
-  box-shadow: 0 6px 20px rgba(0, 230, 195, 0.08);
+  box-shadow: 0 6px 20px rgba(0,230,195,0.08);
   transform: translateY(-1px);
 }
 
@@ -122,7 +116,7 @@
   font-weight: 700;
   cursor: pointer;
   transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
-  box-shadow: 0 8px 26px rgba(6, 26, 30, 0.34);
+  box-shadow: 0 8px 26px rgba(6,26,30,0.34);
 }
 
 .loginBtn:hover {
@@ -180,8 +174,5 @@
 
 /* accessibility: reduce motion */
 @media (prefers-reduced-motion: reduce) {
-  .input,
-  .loginBtn {
-    transition: none;
-  }
+  .input, .loginBtn { transition: none; }
 }
