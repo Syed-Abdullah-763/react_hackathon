@@ -30,16 +30,31 @@ const Login = () => {
             <div className={styles.brandIcon} aria-hidden="true" />
             <div>
               <div className={styles.heading}>PitchCraft</div>
-              <div className={styles.subHeading} style={{ margin: 0, fontSize: '0.85rem' }}>AI assistant for building business ideas</div>
+              <div
+                className={styles.subHeading}
+                style={{ margin: 0, fontSize: "0.85rem" }}
+              >
+                AI assistant for building business ideas
+              </div>
             </div>
           </div>
 
-          <h2 className={styles.heading} style={{ marginTop: 12 }}>Welcome Back 👋</h2>
+          <h2 className={styles.heading} style={{ marginTop: 12 }}>
+            Welcome Back 👋
+          </h2>
           <p className={styles.subHeading}>Login to your account</p>
 
-          <form className={styles.form} onSubmit={(e) => { e.preventDefault(); loginHandler(); }}>
+          <form
+            className={styles.form}
+            onSubmit={(e) => {
+              e.preventDefault();
+              loginHandler();
+            }}
+          >
             <div className={styles.inputGroup}>
-              <label className={styles.label} htmlFor="email">Email</label>
+              <label className={styles.label} htmlFor="email">
+                Email
+              </label>
               <input
                 id="email"
                 type="email"
@@ -52,7 +67,9 @@ const Login = () => {
               />
             </div>
             <div className={styles.inputGroup}>
-              <label className={styles.label} htmlFor="password">Password</label>
+              <label className={styles.label} htmlFor="password">
+                Password
+              </label>
               <input
                 id="password"
                 type="password"
@@ -66,10 +83,9 @@ const Login = () => {
             </div>
 
             <div className={styles.secondaryRow}>
-              <label style={{ color: '#bcd', fontSize: '0.9rem' }}>
+              <label style={{ color: "#bcd", fontSize: "0.9rem" }}>
                 <input type="checkbox" style={{ marginRight: 8 }} /> Remember me
               </label>
-              <Link className={styles.linkBtn} to="/forgot">Forgot?</Link>
             </div>
 
             <button type="submit" className={styles.loginBtn}>
